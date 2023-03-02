@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Deploy/this - Victor Hernandez`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.deploythis.co`
   },
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',

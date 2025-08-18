@@ -1,0 +1,89 @@
+<!-- Deploy/this Bee – Animated SVG -->
+<svg
+  id="deploythis-bee"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Deploy/this Bee Logo</title>
+  <desc id="desc">A monogram bee with yellow body and brace-shaped wings. Wings subtly flap to suggest curiosity.</desc>
+
+  <style>
+    :root {
+      --bee-black: #1f1f1f;   /* brand black */
+      --bee-yellow: #ffe014;  /* brand yellow */
+      --stroke: 18;           /* overall stroke thickness */
+      --flap-speed: 2.6s;     /* animation duration */
+      --flap-angle: 6deg;     /* how much wings rotate (subtle) */
+    }
+
+    #bee-body-outline,
+    .bee-stroke {
+      stroke: var(--bee-black);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* Subtle wing flap */
+    #wing-left,
+    #wing-right {
+      transform-box: fill-box;
+      animation: flap var(--flap-speed) ease-in-out infinite;
+    }
+    #wing-left  { transform-origin: 100px 128px; animation-direction: alternate; }
+    #wing-right { transform-origin: 156px 128px; animation-direction: alternate-reverse; }
+
+    @keyframes flap {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(var(--flap-angle)); }
+    }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      #wing-left, #wing-right { animation: none; }
+    }
+  </style>
+
+  <!-- BODY: thick circular bee body with yellow fill and center divider -->
+  <g id="body">
+    <!-- outer body ring -->
+    <circle id="bee-body-outline" cx="128" cy="148" r="76" stroke-width="18"/>
+    <!-- yellow body (slightly inset so black rim is visible) -->
+    <circle cx="128" cy="148" r="66" fill="var(--bee-yellow)"/>
+    <!-- center divider -->
+    <rect x="118" y="86" width="20" height="124" fill="var(--bee-black)" rx="10"/>
+  </g>
+
+  <!-- HEAD + loop (top of monogram) -->
+  <g id="head" fill="none" stroke="var(--bee-black)" stroke-width="18">
+    <!-- head circle -->
+    <circle cx="108" cy="84" r="32"/>
+    <!-- top loop / ear-like knot -->
+    <path d="M128 36c22-12 50 3 56 28 4 17-1 33-14 45l-18 18" />
+    <!-- neck connect -->
+    <path d="M108 116v-24"/>
+  </g>
+
+  <!-- WINGS: brace-shaped paths (animated groups) -->
+  <g id="wing-left" class="bee-stroke" stroke-width="18">
+    <!-- left curly brace -->
+    <path d="
+      M 72 116
+      c -18 0 -26 10 -26 22
+      c 0 10 -10 16 -18 18
+      c 8 2 18 8 18 18
+      c 0 12 8 22 26 22" />
+  </g>
+
+  <g id="wing-right" class="bee-stroke" stroke-width="18">
+    <!-- right curly brace (mirrored) -->
+    <path d="
+      M 184 116
+      c 18 0 26 10 26 22
+      c 0 10 10 16 18 18
+      c -8 2 -18 8 -18 18
+      c 0 12 -8 22 -26 22" />
+  </g>
+</svg>

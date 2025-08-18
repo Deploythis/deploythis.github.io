@@ -1,0 +1,116 @@
+{
+  "designSystem": {
+    "foundations": {
+      "colors": {
+        "primary": "#FFE014", 
+        "secondary": "#1F1F1F", 
+        "background": "#FFFFFF",
+        "accent": "#FFE014", 
+        "textPrimary": "#1F1F1F",
+        "textSecondary": "#666666",
+        "highlight": "#FFE014"
+      },
+      "typography": {
+        "fonts": {
+          "logo": "Fredoka One, sans-serif",
+          "tagline": "Raleway, sans-serif",
+          "body": "Avenir, sans-serif"
+        },
+        "scale": {
+          "h1": { "size": "3rem", "weight": "700", "font": "Fredoka One", "lineHeight": "1.2" },
+          "h2": { "size": "2rem", "weight": "700", "font": "Fredoka One", "lineHeight": "1.3" },
+          "h3": { "size": "1.5rem", "weight": "600", "font": "Raleway", "lineHeight": "1.4" },
+          "body": { "size": "1rem", "weight": "400", "font": "Avenir", "lineHeight": "1.6" },
+          "small": { "size": "0.875rem", "weight": "400", "font": "Avenir", "lineHeight": "1.5" }
+        }
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "32px",
+        "xl": "64px"
+      },
+      "radii": {
+        "none": "0px",
+        "sm": "4px",
+        "md": "8px",
+        "lg": "16px"
+      },
+      "shadows": {
+        "card": "0px 2px 6px rgba(0,0,0,0.1)",
+        "hover": "0px 4px 12px rgba(0,0,0,0.15)"
+      }
+    },
+    "components": {
+      "header": {
+        "layout": "flex",
+        "alignment": "space-between",
+        "links": ["Work", "Writing", "About", "Experience", "Skills", "Contact"],
+        "social": ["Twitter", "LinkedIn", "Email"]
+      },
+      "hero": {
+        "title": "Freelance product designer",
+        "subtitle": "Interactive product designer with 10 years of experience. Available for freelance projects.",
+        "alignment": "center",
+        "cta": {
+          "label": "Read more",
+          "style": "link"
+        }
+      },
+      "workCard": {
+        "layout": "vertical",
+        "image": { "aspectRatio": "16:9", "borderRadius": "sm" },
+        "titleStyle": "h2",
+        "subtitleStyle": "small",
+        "hoverEffect": "lift + shadow"
+      },
+      "articleList": {
+        "style": "list",
+        "linkStyle": "underline",
+        "spacing": "sm"
+      },
+      "aboutSection": {
+        "title": "About",
+        "layout": "twoColumn",
+        "content": "bio, background, approach"
+      },
+      "experience": {
+        "item": {
+          "title": "Company & Role",
+          "dates": "dateRange",
+          "style": "h3 + small"
+        }
+      },
+      "skills": {
+        "listStyle": "stack",
+        "items": [
+          "User interface design",
+          "Design systems",
+          "Framer development",
+          "UX design",
+          "Product strategy"
+        ]
+      },
+      "interests": {
+        "layout": "grid",
+        "columns": 4,
+        "imageStyle": "square-thumbnail"
+      },
+      "contact": {
+        "cta": "Have a project in mind?",
+        "channels": ["Email", "Twitter", "LinkedIn", "Dribbble"]
+      },
+      "newsletter": {
+        "title": "Get design insights and articles",
+        "cta": "Sign up",
+        "inputStyle": "rounded + border"
+      },
+      "footer": {
+        "content": "Freelance product designer based in Lisbon",
+        "links": ["Twitter", "LinkedIn", "Email"],
+        "style": "minimal"
+      }
+    }
+  }
+}

@@ -29,7 +29,7 @@ const IndexPage = () => {
             <div className="hero-layout">
               <div className="hero-text">
                 <h1 className="hero-title">
-                  Victor Hugo Hernandez
+                  Victor Hernandez
                   <br />Frontend Developer / Creative Technologist
                 </h1>
                 <p className="hero-subtitle">Bringing over 15 years of experience in software engineering and creative technology, I specialize in digital transformation. My passion for AI and code generation drives me to build elegant, innovative applications. I am actively seeking both freelance projects and full-time opportunities.</p>
@@ -47,7 +47,7 @@ const IndexPage = () => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  Hi, I'm <strong>Victor Hugo Hernandez</strong>, a Frontend Developer and Creative Technologist based in Brookline, Massachusetts.
+                  Hi, I'm <strong>Victor Hernandez</strong>, a Frontend Developer and Creative Technologist based in Brookline, Massachusetts.
                 </p>
                 <p>
                   I bring a unique perspective to building <strong>scalable, user-friendly, and high-performance applications</strong> through my experience in software engineering, digital transformation, and creative technology.

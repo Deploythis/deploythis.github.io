@@ -1,6 +1,6 @@
 # About Me
 
-Hi, I’m **Victor Hugo Hernandez**, a Frontend Developer based in Brookline, Massachusetts.  
+Hi, I’m **Victor Hernandez**, a Frontend Developer based in Brookline, Massachusetts.  
 
 With over 15 years of experience across software engineering, digital transformation, and creative technology, I bring a unique perspective to building **scalable, user-friendly, and high-performance applications**.  
 

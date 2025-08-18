@@ -173,7 +173,7 @@ export default CVPage
 
 export const Head = () => (
   <HeadContent 
-    title="Victor Hugo Hernandez - CV & Portfolio"
+  title="Victor Hernandez - CV & Portfolio"
     description="Senior Frontend Developer with extensive experience in JavaScript frameworks, digital strategy, and full stack solutions"
   />
 )

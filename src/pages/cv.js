@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
+import "../styles/fonts.css"
 import "../styles/global.css"
 
 const CVPage = () => {
@@ -16,7 +17,7 @@ const CVPage = () => {
             <ul className="nav-links">
               <li><Link to="/">About</Link></li>
               <li><Link to="/cv" className="active">Experience</Link></li>
-              <li><Link to="#contact">Contact</Link></li>
+              <li><Link to="/#contact">Contact</Link></li>
             </ul>
           </nav>
         </div>
@@ -48,7 +49,7 @@ const CVPage = () => {
               </div>
               <div className="experience-content">
                 <ul>
-                  <li>Enhance and maintain documentation projects using AEM, JavaScript, Sass, and Node.js</li>
+                  <li>Enhance and maintain documentation projects using Adobe AEM / AIO, JavaScript, Sass, and Node.js</li>
                   <li>Implemented new editor functionality and improved accuracy of content systems</li>
                   <li>Built proprietary web components and ensured robust CSS framework consistency</li>
                 </ul>
@@ -147,12 +148,13 @@ const CVPage = () => {
           </div>
         </section>
 
-        <section className="contact-section">
+        <section className="contact-section" id="contact">
           <div className="container">
             <h2 className="contact-title">Have a project in mind?</h2>
             <ul className="contact-links">
-              <li><a href="mailto:victor.hernandez.col@gmail.com">Email</a></li>
+              <li><a href="mailto:victor@deploythis.co">Email</a></li>
               <li><a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></li>
             </ul>
           </div>
         </section>
@@ -160,7 +162,7 @@ const CVPage = () => {
 
       <footer className="footer">
         <div className="container">
-          <p>📍 Brookline, MA | ✉️ <a href="mailto:victor.hernandez.col@gmail.com">victor.hernandez.col@gmail.com</a> | 🌐 <a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p>📍 Brookline, MA | ✉️ <a href="mailto:victor@deploythis.co">victor@deploythis.co</a> | 🌐 <a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></p>
         </div>
       </footer>
     </>

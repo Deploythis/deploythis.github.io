@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Raleway:wght@300;400;500;600;700&family=Avenir:wght@300;400;500;600;700&display=swap');
+/* Import fonts from separate file to prevent Gatsby build issues */
+@import './fonts.css';
 
 /* CSS Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* CSS Variables - Updated with deploythis brand */
@@ -22,9 +24,9 @@
   --color-highlight: #FFE014;
   
   /* Typography - Brand fonts from deploythis */
-  --font-logo: 'Fredoka One', cursive;
-  --font-tagline: 'Raleway', sans-serif;
-  --font-body: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-logo: 'Fredoka One', 'Comic Sans MS', cursive, system-ui;
+  --font-tagline: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-body: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
   
   /* Font Sizes - More refined scale */
   --font-size-hero: 2.5rem;

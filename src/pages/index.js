@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
+import "../styles/fonts.css"
 import "../styles/global.css"
 
 const IndexPage = () => {
@@ -16,7 +17,7 @@ const IndexPage = () => {
             <ul className="nav-links">
               <li><Link to="/" className="active">About</Link></li>
               <li><Link to="/cv">Experience</Link></li>
-              <li><Link to="#contact">Contact</Link></li>
+              <li><Link to="/#contact">Contact</Link></li>
             </ul>
           </nav>
         </div>
@@ -29,9 +30,9 @@ const IndexPage = () => {
               <div className="hero-text">
                 <h1 className="hero-title">
                   Victor Hugo Hernandez
-                  <br />Frontend Developer
+                  <br />Frontend Developer / Creative Technologist
                 </h1>
-                <p className="hero-subtitle">With over 15 years of experience across software engineering, digital transformation, and creative technology. Available for freelance projects and full-time opportunities.</p>
+                <p className="hero-subtitle">Bringing over 15 years of experience in software engineering and creative technology, I specialize in digital transformation. My passion for AI and code generation drives me to build elegant, innovative applications. I am actively seeking both freelance projects and full-time opportunities.</p>
               </div>
               <div className="hero-logo">
                 <BeeLogo size={240} className="floating-bee" />
@@ -46,7 +47,7 @@ const IndexPage = () => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  Hi, I'm <strong>Victor Hugo Hernandez</strong>, a Frontend Developer based in Brookline, Massachusetts.
+                  Hi, I'm <strong>Victor Hugo Hernandez</strong>, a Frontend Developer and Creative Technologist based in Brookline, Massachusetts.
                 </p>
                 <p>
                   I bring a unique perspective to building <strong>scalable, user-friendly, and high-performance applications</strong> through my experience in software engineering, digital transformation, and creative technology.
@@ -75,8 +76,9 @@ const IndexPage = () => {
             <h2 className="contact-title">Get in touch</h2>
             <p>Have a project in mind?</p>
             <ul className="contact-links">
-              <li><a href="mailto:victor.hernandez.col@gmail.com">Email</a></li>
+              <li><a href="mailto:victor@deploythis.co">Email</a></li>
               <li><a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></li>
             </ul>
           </div>
         </section>
@@ -84,7 +86,7 @@ const IndexPage = () => {
 
       <footer className="footer">
         <div className="container">
-          <p>© Victor Hugo Hernandez • Frontend Developer based in Brookline, MA</p>
+          <p>📍 Brookline, MA | ✉️ <a href="mailto:victor@deploythis.co">victor@deploythis.co</a> | 🌐 <a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></p>
         </div>
       </footer>
     </>

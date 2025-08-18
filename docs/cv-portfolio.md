@@ -1,6 +1,6 @@
 # Victor Hugo Hernandez – CV / Portfolio
 
-📍 Brookline, MA | ✉️ victor.hernandez.col@gmail.com | 🌐 [LinkedIn](https://www.linkedin.com/in/victorhernandezduran)
+📍 Brookline, MA | ✉️ victor@deploythis.co | 🌐 [LinkedIn](https://www.linkedin.com/in/victorhernandezduran)
 
 ---
 

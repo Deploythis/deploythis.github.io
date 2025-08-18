@@ -9,7 +9,16 @@ module.exports = {
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      name: 'Deploy/this - Victor Hernandez',
+      short_name: 'Deploy/this',
+      start_url: '/',
+      background_color: '#FFFFFF',
+      theme_color: '#FFE014',
+      display: 'minimal-ui',
+      icon: 'src/images/icon.png',
+      icon_options: {
+        purpose: 'any maskable',
+      },
     }
   }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',

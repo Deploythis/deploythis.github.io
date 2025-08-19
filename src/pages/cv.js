@@ -29,7 +29,7 @@ const CVPage = () => {
             <div className="hero-layout">
               <div className="hero-text">
                 <h1 className="hero-title">CV / Portfolio</h1>
-                <p className="hero-subtitle">Senior Frontend Developer with extensive experience in JavaScript frameworks, digital strategy, and full stack solutions. Skilled in creating engaging user experiences, optimizing performance, and leading digital initiatives for major global clients.</p>
+                <p className="hero-subtitle">Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – from early web development to AI-era solutions. Expert in bridging technical execution with strategic vision, creating scalable user experiences, and leading digital transformation for enterprise clients.</p>
               </div>
               <div className="hero-logo">
                 <BeeLogo size={120} className="floating-bee" />
@@ -122,8 +122,9 @@ const CVPage = () => {
               <div>Performance optimization</div>
               <div>Web Security</div>
               <div>Accessibility</div>
-              <div>Generative AI</div>
-              <div>Digital Strategy</div>
+              <div>Agentic AI systems</div>
+              <div>Strategic thinking</div>
+              <div>Technical-creative translation</div>
             </div>
           </div>
         </section>
@@ -174,6 +175,6 @@ export default CVPage
 export const Head = () => (
   <HeadContent 
   title="Victor Hernandez - CV & Portfolio"
-    description="Senior Frontend Developer with extensive experience in JavaScript frameworks, digital strategy, and full stack solutions"
+    description="Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – bridging technical execution with strategic vision"
   />
 )

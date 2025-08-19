@@ -203,7 +203,7 @@ strong {
 
 /* Hero Section */
 .hero {
-  padding: var(--spacing-64) 0 var(--spacing-96) 0;
+  padding: var(--spacing-64) 0 var(--spacing-32) 0;
   background: var(--color-background);
 }
 

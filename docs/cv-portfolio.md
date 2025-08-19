@@ -5,7 +5,7 @@
 ---
 
 ## Summary
-Senior Frontend Developer with extensive experience in **JavaScript frameworks, digital strategy, and full stack solutions**. Skilled in creating **engaging user experiences**, optimizing performance, and leading digital initiatives for major global clients.  
+Senior Frontend Developer and Creative Technologist with **30 years of technology evolution experience** – from early web development to AI-era solutions. Expert in **bridging technical execution with strategic vision**, creating scalable user experiences, and leading digital transformation for enterprise clients.  
 
 ---
 
@@ -46,7 +46,8 @@ Senior Frontend Developer with extensive experience in **JavaScript frameworks, 
 ## Skills
 - **Languages/Frameworks**: React, JavaScript, TypeScript, Node.js, Sass, LAMP, CMS (WordPress, Drupal, Expression Engine)
 - **Frontend Core Areas**: Performance, Security, Usability, Accessibility
-- **Other**: Generative AI, Large Language Models, Digital Strategy, Collaboration  
+- **Strategic Technologies**: Generative AI, LLMs, Agentic AI systems, Enterprise integration patterns
+- **Core Strengths**: Strategic thinking, Technical-creative translation, Legacy system modernization  
 
 ---
 

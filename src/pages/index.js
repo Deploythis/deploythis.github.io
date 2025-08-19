@@ -29,10 +29,9 @@ const IndexPage = () => {
             <div className="hero-layout">
               <div className="hero-text">
                 <h1 className="hero-title">
-                  Victor Hernandez
-                  <br />Frontend Developer / Creative Technologist
+                  Frontend Developer / Creative Technologist
                 </h1>
-                <p className="hero-subtitle">Bringing over 15 years of experience in software engineering and creative technology, I specialize in digital transformation. My passion for AI and code generation drives me to build elegant, innovative applications. I am actively seeking both freelance projects and full-time opportunities.</p>
+                <p className="hero-subtitle">I am the bridge between creative vision and technical reality. My role is to translate "what if" ideas into a clear "how-to" roadmap, helping teams execute with confidence.</p>
               </div>
               <div className="hero-logo">
                 <BeeLogo size={240} className="floating-bee" />
@@ -47,13 +46,13 @@ const IndexPage = () => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  Hi, I'm <strong>Victor Hernandez</strong>, a Frontend Developer and Creative Technologist based in Brookline, Massachusetts.
+                  Hi, I'm <strong>Victor Hernandez</strong>, a Creative Technologist and Frontend Developer who bridges technical execution with strategic vision.
                 </p>
                 <p>
-                  I bring a unique perspective to building <strong>scalable, user-friendly, and high-performance applications</strong> through my experience in software engineering, digital transformation, and creative technology.
+                  I specialize in <strong>translating between creative vision and technical reality</strong> – helping teams move from "what if" to "how to" with clarity and confidence. With over 30 years of experience across software engineering, digital transformation, and creative technology, I bring a unique perspective to building <strong>scalable, user-friendly, and high-performance applications</strong>.
                 </p>
                 <p>
-                  My goal over the next 2–3 years is to reskill further in React and JavaScript frameworks, upskill in Web Security, deepen expertise in Performance and Usability, and integrate AI to deliver smarter, more engaging user experiences.
+                  My vision combines <strong>30 years of technology evolution experience</strong> with current AI-era opportunities to reskill further in React and JavaScript frameworks, upskill in Web Security, deepen expertise in Performance and Usability, and integrate AI to deliver smarter, more engaging user experiences.
                 </p>
               </div>
               <div className="about-skills">

@@ -4,43 +4,126 @@
   </a>
 </p>
 <h1 align="center">
-  deploythis.github.io – Personal Site
+  Deploy/this – Victor Hernandez
 </h1>
+<p align="center">
+  <em>Creative Technologist and Frontend Developer</em><br>
+  <strong>deploythis.co</strong>
+</p>
 
-## 🚀 Quick start
+## 📋 About This Project
 
-1.  **Create a Gatsby site.**
+This is the personal portfolio website for Victor Hernandez, a Creative Technologist and Frontend Developer with 30+ years of experience. The site showcases professional experience, technical expertise, and serves as a bridge between creative vision and technical execution.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+**Live Site**: [deploythis.co](https://deploythis.co)
 
+## 🏗️ Technology Stack
+
+### Core Framework
+- **Gatsby 5.7.0** - Static site generator with React
+- **React 18.2.0** - Component-based UI framework
+- **Node.js** - JavaScript runtime environment
+
+### Key Dependencies
+- **gatsby-plugin-mdx 5.7.0** - MDX support for markdown with JSX
+- **gatsby-plugin-sass 6.7.0** - Sass/SCSS styling support
+- **gatsby-source-filesystem 5.7.0** - File system sourcing
+- **gatsby-plugin-image 3.7.0** - Optimized image processing
+- **framer-motion 12.23.12** - Animation library
+- **gh-pages 5.0.0** - GitHub Pages deployment
+
+## 🚀 Quick Start
+
+1.  **Clone and install dependencies**
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    git clone https://github.com/Deploythis/deploythis.github.io.git
+    cd deploythis.github.io
+    npm install
     ```
 
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
+2.  **Start developing**
     ```shell
-    cd my-gatsby-site/
     npm run develop
     ```
+    Your site is now running at `http://localhost:8000`!
 
-3.  **Open the code and start customizing!**
+3.  **View GraphQL data layer**
+    Open `http://localhost:8000/___graphql` to explore the site's data structure.
 
-    Your site is now running at http://localhost:8000!
+## 📁 Project Structure
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+```
+src/
+├── components/           # Reusable React components
+│   ├── _head.js         # SEO head component
+│   └── BeeLogo.js       # Logo component with animation
+├── images/              # Static image assets
+│   ├── icon.png         # Site icon/favicon
+│   └── logo.png         # Brand logo
+├── pages/               # Gatsby page components
+│   ├── 404.js          # Error page
+│   ├── index.js        # Home page
+│   └── cv.js           # Experience page
+└── styles/              # CSS styling
+    ├── fonts.css       # Typography
+    └── global.css      # Global styles
+```
 
-4.  **Learn more**
+## 📝 Content Management (DPT-001-0)
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+This project is undergoing migration from hardcoded content to a markdown-based content management system:
+
+### Current Architecture
+- Content is hardcoded within React components
+- Direct JSX text embedding in page files
+- Static contact information and experience data
+
+### Target Architecture (In Progress)
+```
+content/
+├── site/
+│   └── metadata.md      # Site-level SEO and configuration
+├── pages/
+│   ├── home.md         # Homepage content (hero, about, skills)
+│   └── cv.md           # Experience and education content
+└── contact/
+    └── info.md         # Contact details and social links
+```
+
+### Benefits of New Architecture
+- **Separation of Concerns**: Content separate from presentation layer
+- **Easy Updates**: Non-technical content updates via markdown files
+- **GraphQL Integration**: Leverage Gatsby's built-in content optimization
+- **Scalability**: Foundation for future content types (blog, portfolio)
+
+## 🛠️ Development Commands
+
+```shell
+npm run develop    # Development server (http://localhost:8000)
+npm run build     # Production build
+npm run serve     # Serve built site locally
+npm run clean     # Clean Gatsby cache and public folder
+```
+
+## 🎨 Code Conventions
+
+### JavaScript Patterns
+- **ES6+ Syntax**: Arrow functions, template literals
+- **React Patterns**: Functional components with hooks
+- **File Naming**: kebab-case for files, PascalCase for components
+
+### Styling Conventions
+- **CSS Classes**: BEM-like naming (`hero-title`, `contact-section`)
+- **Global Styles**: Shared via `global.css`
+- **Sass/SCSS**: Available for enhanced styling capabilities
+
+## 🔍 SEO & Performance
+
+- **Gatsby Image**: Automatic image optimization and lazy loading
+- **Static Generation**: Pre-built pages for fast loading
+- **SEO Components**: Centralized metadata management via `_head.js`
+- **Sitemap**: Automatic sitemap generation
+- **Manifest**: PWA configuration for mobile experience
 
 ## 🚀 Deployment (GitHub Pages via Actions)
 

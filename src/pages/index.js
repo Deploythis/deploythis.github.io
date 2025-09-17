@@ -1,11 +1,13 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
 import "../styles/fonts.css"
 import "../styles/global.css"
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const homeContent = data.homeContent.frontmatter
+  const contactInfo = data.contactInfo.frontmatter
   return (
     <>
       <header className="header">
@@ -29,9 +31,9 @@ const IndexPage = () => {
             <div className="hero-layout">
               <div className="hero-text">
                 <h1 className="hero-title">
-                  Frontend Developer / Creative Technologist
+                  {homeContent.title}
                 </h1>
-                <p className="hero-subtitle">I am the bridge between creative vision and technical reality. My role is to translate "what if" ideas into a clear "how-to" roadmap, helping teams execute with confidence.</p>
+                <p className="hero-subtitle">{homeContent.subtitle}</p>
               </div>
               <div className="hero-logo">
                 <BeeLogo size={240} className="floating-bee" />
@@ -46,24 +48,21 @@ const IndexPage = () => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  Hi, I'm <strong>Victor Hernandez</strong>, a Creative Technologist and Frontend Developer who bridges technical execution with strategic vision.
+                  Hi, I'm <strong>{homeContent.name}</strong>, a {homeContent.role} who bridges technical execution with strategic vision.
                 </p>
                 <p>
-                  I specialize in <strong>translating between creative vision and technical reality</strong> – helping teams move from "what if" to "how to" with clarity and confidence. With over 30 years of experience across software engineering, digital transformation, and creative technology, I bring a unique perspective to building <strong>scalable, user-friendly, and high-performance applications</strong>.
+                  {homeContent.description}
                 </p>
                 <p>
-                  My vision combines <strong>30 years of technology evolution experience</strong> with current AI-era opportunities to reskill further in React and JavaScript frameworks, upskill in Web Security, deepen expertise in Performance and Usability, and integrate AI to deliver smarter, more engaging user experiences.
+                  {homeContent.vision}
                 </p>
               </div>
               <div className="about-skills">
                 <h3>Skills & Focus Areas</h3>
                 <ul>
-                  <li>Frontend Development</li>
-                  <li>React & JavaScript frameworks</li>
-                  <li>Performance optimization</li>
-                  <li>Web Security & Accessibility</li>
-                  <li>AI & Emerging Technologies</li>
-                  <li>Digital Strategy</li>
+                  {homeContent.skills.technical.map((skill, index) => (
+                    <li key={index}>{skill}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -75,9 +74,9 @@ const IndexPage = () => {
             <h2 className="contact-title">Get in touch</h2>
             <p>Have a project in mind?</p>
             <ul className="contact-links">
-              <li><a href="mailto:victor@deploythis.co">Email</a></li>
-              <li><a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></li>
+              <li><a href={`mailto:${contactInfo.email}`}>Email</a></li>
+              <li><a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.linkedin.label}</a></li>
+              <li><a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.bluesky.label}</a></li>
             </ul>
           </div>
         </section>
@@ -85,7 +84,7 @@ const IndexPage = () => {
 
       <footer className="footer">
         <div className="container">
-          <p>📍 Brookline, MA | ✉️ <a href="mailto:victor@deploythis.co">victor@deploythis.co</a> | 🌐 <a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></p>
+          <p>📍 {contactInfo.location} | ✉️ <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐 <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">BlueSky</a></p>
         </div>
       </footer>
     </>
@@ -94,4 +93,57 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => HeadContent();
+export const Head = ({ data }) => HeadContent({
+  title: data.homeContent.frontmatter.seo?.title || data.site.siteMetadata.title,
+  description: data.homeContent.frontmatter.seo?.description || data.site.siteMetadata.description
+});
+
+export const query = graphql`
+  query HomePageQuery {
+    homeContent: markdownRemark(
+      frontmatter: { type: { eq: "page" } }
+      fileAbsolutePath: { regex: "/content/pages/home/" }
+    ) {
+      frontmatter {
+        title
+        subtitle
+        name
+        role
+        description
+        vision
+        skills {
+          technical
+        }
+        seo {
+          title
+          description
+        }
+      }
+    }
+    contactInfo: markdownRemark(
+      frontmatter: { type: { eq: "contact" } }
+      fileAbsolutePath: { regex: "/content/contact/" }
+    ) {
+      frontmatter {
+        email
+        location
+        social {
+          linkedin {
+            url
+            label
+          }
+          bluesky {
+            url
+            label
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`

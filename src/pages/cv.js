@@ -1,11 +1,13 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
 import "../styles/fonts.css"
 import "../styles/global.css"
 
-const CVPage = () => {
+const CVPage = ({ data }) => {
+  const cvContent = data.cvContent.frontmatter
+  const contactInfo = data.contactInfo.frontmatter
   return (
     <>
       <header className="header">
@@ -28,8 +30,8 @@ const CVPage = () => {
           <div className="container">
             <div className="hero-layout">
               <div className="hero-text">
-                <h1 className="hero-title">CV / Portfolio</h1>
-                <p className="hero-subtitle">Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – from early web development to AI-era solutions. Expert in bridging technical execution with strategic vision, creating scalable user experiences, and leading digital transformation for enterprise clients.</p>
+                <h1 className="hero-title">{cvContent.title}</h1>
+                <p className="hero-subtitle">{cvContent.subtitle}</p>
               </div>
               <div className="hero-logo">
                 <BeeLogo size={120} className="floating-bee" />
@@ -42,72 +44,21 @@ const CVPage = () => {
           <div className="container">
             <h2 className="section-title">Experience</h2>
 
-            <div className="experience-item">
-              <div className="experience-header">
-                <h3 className="experience-title">Senior Frontend Developer</h3>
-                <p className="experience-dates">Endava • Nov 2021 – Present</p>
+            {cvContent.experience.map((job, index) => (
+              <div key={index} className="experience-item">
+                <div className="experience-header">
+                  <h3 className="experience-title">{job.title}</h3>
+                  <p className="experience-dates">{job.company} • {job.period}</p>
+                </div>
+                <div className="experience-content">
+                  <ul>
+                    {job.description.map((item, itemIndex) => (
+                      <li key={itemIndex} dangerouslySetInnerHTML={{ __html: item }} />
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="experience-content">
-                <ul>
-                  <li>Enhance and maintain documentation projects using Adobe AEM / AIO, JavaScript, Sass, and Node.js</li>
-                  <li>Implemented new editor functionality and improved accuracy of content systems</li>
-                  <li>Built proprietary web components and ensured robust CSS framework consistency</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="experience-item">
-              <div className="experience-header">
-                <h3 className="experience-title">Creative Technologist / Full Stack Developer</h3>
-                <p className="experience-dates">Nullun • 2008 – 2021</p>
-              </div>
-              <div className="experience-content">
-                <ul>
-                  <li>Consulted for agencies and software companies on digital products, technical leadership, and team building</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="experience-item">
-              <div className="experience-header">
-                <h3 className="experience-title">Digital Director / Creative Technologist</h3>
-                <p className="experience-dates">Ogilvy & Mather • 2016 – 2017</p>
-              </div>
-              <div className="experience-content">
-                <ul>
-                  <li>Led digital strategic planning for Coca-Cola, Pfizer, Claro, Allianz, Dunkin Donuts, and others</li>
-                  <li>Guided teams in building campaigns and adopting digital-first processes</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="experience-item">
-              <div className="experience-header">
-                <h3 className="experience-title">Creative Technologist Director</h3>
-                <p className="experience-dates">Sancho BBDO • 2010 – 2016</p>
-              </div>
-              <div className="experience-content">
-                <ul>
-                  <li>Drove digital transformation, innovation teams, and prototyping initiatives</li>
-                  <li>Oversaw production teams, delivering scalable and creative digital campaigns</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="experience-item">
-              <div className="experience-header">
-                <h3 className="experience-title">Full Stack Developer</h3>
-                <p className="experience-dates">Various Companies • 1997 – 2010</p>
-              </div>
-              <div className="experience-content">
-                <ul>
-                  <li><strong>La Cápsula</strong> – Full Stack Developer (2007 – 2010)</li>
-                  <li><strong>WWF Colombia</strong> – Full Stack Developer (2001 – 2007)</li>
-                  <li><strong>Banco Aliadas</strong> – Full Stack Developer (2001 – 2006)</li>
-                  <li><strong>Brincabrinca Ltd (Co-Founder)</strong> – Full Stack Developer (1997 – 2005)</li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -115,16 +66,9 @@ const CVPage = () => {
           <div className="container">
             <h2 className="section-title">Skills</h2>
             <div className="skills-simple">
-              <div>React development</div>
-              <div>JavaScript frameworks</div>
-              <div>TypeScript</div>
-              <div>Node.js</div>
-              <div>Performance optimization</div>
-              <div>Web Security</div>
-              <div>Accessibility</div>
-              <div>Agentic AI systems</div>
-              <div>Strategic thinking</div>
-              <div>Technical-creative translation</div>
+              {cvContent.skills.technical.map((skill, index) => (
+                <div key={index}>{skill}</div>
+              ))}
             </div>
           </div>
         </section>
@@ -133,17 +77,15 @@ const CVPage = () => {
           <div className="container">
             <h2 className="section-title">Education & Awards</h2>
             <div className="simple-content">
-              <div className="education-item">
-                <strong>Holberton School</strong><br />
-                Full Stack Software Engineering (2019–2021)
-              </div>
-              <div className="education-item">
-                <strong>Institución Universitaria Antonio José Camacho</strong><br />
-                Academic Studies (1996–1999)
-              </div>
+              {cvContent.education.map((edu, index) => (
+                <div key={index} className="education-item">
+                  <strong>{edu.institution}</strong><br />
+                  {edu.degree} ({edu.year})
+                </div>
+              ))}
               <div className="awards">
                 <h3>Recognition</h3>
-                <p>Bronze Awards in Media, Cyber, and Social & Influencer categories for campaigns including <em>Run for Your Balls</em>, <em>VoiceBank</em>, and <em>Lions Earth is Saying</em>.</p>
+                <p>{cvContent.awards.recognition}</p>
               </div>
             </div>
           </div>
@@ -153,9 +95,9 @@ const CVPage = () => {
           <div className="container">
             <h2 className="contact-title">Have a project in mind?</h2>
             <ul className="contact-links">
-              <li><a href="mailto:victor@deploythis.co">Email</a></li>
-              <li><a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></li>
+              <li><a href={`mailto:${contactInfo.email}`}>Email</a></li>
+              <li><a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.linkedin.label}</a></li>
+              <li><a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.bluesky.label}</a></li>
             </ul>
           </div>
         </section>
@@ -163,7 +105,7 @@ const CVPage = () => {
 
       <footer className="footer">
         <div className="container">
-          <p>📍 Brookline, MA | ✉️ <a href="mailto:victor@deploythis.co">victor@deploythis.co</a> | 🌐 <a href="https://www.linkedin.com/in/victorhernandezduran" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href="https://bsky.app/profile/deploythis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></p>
+          <p>📍 {contactInfo.location} | ✉️ <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐 <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">BlueSky</a></p>
         </div>
       </footer>
     </>
@@ -172,9 +114,69 @@ const CVPage = () => {
 
 export default CVPage
 
-export const Head = () => (
-  <HeadContent 
-  title="Victor Hernandez - CV & Portfolio"
-    description="Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – bridging technical execution with strategic vision"
+export const Head = ({ data }) => (
+  <HeadContent
+    title={data.cvContent.frontmatter.seo?.title || "Victor Hernandez - CV & Portfolio"}
+    description={data.cvContent.frontmatter.seo?.description || data.site.siteMetadata.description}
   />
 )
+
+export const query = graphql`
+  query CVPageQuery {
+    cvContent: markdownRemark(
+      frontmatter: { type: { eq: "page" } }
+      fileAbsolutePath: { regex: "/content/pages/cv/" }
+    ) {
+      frontmatter {
+        title
+        subtitle
+        experience {
+          title
+          company
+          period
+          description
+        }
+        skills {
+          technical
+        }
+        education {
+          degree
+          institution
+          year
+        }
+        awards {
+          recognition
+        }
+        seo {
+          title
+          description
+        }
+      }
+    }
+    contactInfo: markdownRemark(
+      frontmatter: { type: { eq: "contact" } }
+      fileAbsolutePath: { regex: "/content/contact/" }
+    ) {
+      frontmatter {
+        email
+        location
+        social {
+          linkedin {
+            url
+            label
+          }
+          bluesky {
+            url
+            label
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`

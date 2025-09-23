@@ -1,4 +1,5 @@
 import * as React from "react"
+import ReactMarkdown from "react-markdown"
 import { Link, graphql } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
@@ -53,7 +54,9 @@ const CVPage = ({ data }) => {
                 <div className="experience-content">
                   <ul>
                     {job.description.map((item, itemIndex) => (
-                      <li key={itemIndex} dangerouslySetInnerHTML={{ __html: item }} />
+                      <li key={itemIndex}>
+                        <ReactMarkdown>{item}</ReactMarkdown>
+                      </li>
                     ))}
                   </ul>
                 </div>

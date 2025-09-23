@@ -1,4 +1,5 @@
 import * as React from "react"
+import ReactMarkdown from "react-markdown"
 import { Link, graphql } from "gatsby"
 import HeadContent from "../components/_head"
 import BeeLogo from "../components/BeeLogo"
@@ -48,13 +49,13 @@ const IndexPage = ({ data }) => {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  Hi, I'm <strong>{homeContent.name}</strong>, a {homeContent.role} who bridges technical execution with strategic vision.
+                  <ReactMarkdown>{homeContent.bio}</ReactMarkdown>
                 </p>
                 <p>
-                  {homeContent.description}
+                  <ReactMarkdown>{homeContent.description}</ReactMarkdown>
                 </p>
                 <p>
-                  {homeContent.vision}
+                  <ReactMarkdown>{homeContent.vision}</ReactMarkdown>
                 </p>
               </div>
               <div className="about-skills">
@@ -109,6 +110,7 @@ export const query = graphql`
         subtitle
         name
         role
+        bio
         description
         vision
         skills {

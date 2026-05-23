@@ -1,32 +1,45 @@
-import * as React from "react"
-import ReactMarkdown from "react-markdown"
-import { Link, graphql } from "gatsby"
-import HeadContent from "../components/_head"
-import BeeLogo from "../components/BeeLogo"
-import "../styles/fonts.css"
-import "../styles/global.css"
+import * as React from 'react'
+import ReactMarkdown from 'react-markdown'
+import { Link, graphql } from 'gatsby'
+import HeadContent from '../components/_head'
+import BeeLogo from '../components/BeeLogo'
+import CookieConsentBanner from '../components/CookieConsent'
+import '../styles/fonts.css'
+import '../styles/global.css'
 
 const CVPage = ({ data }) => {
   const cvContent = data.cvContent.frontmatter
   const contactInfo = data.contactInfo.frontmatter
   return (
     <>
-      <header className="header">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <header className="header" role="banner">
         <div className="container">
           <div className="logo">
-            <span className="brand-highlight">{"{"}</span>Deploy/this<span className="brand-highlight">{"}"}</span>
+            <span className="brand-highlight">{'{'}</span>Deploy/this
+            <span className="brand-highlight">{'}'}</span>
           </div>
-          <nav>
+          <nav role="navigation" aria-label="Main navigation">
             <ul className="nav-links">
-              <li><Link to="/">About</Link></li>
-              <li><Link to="/cv" className="active">Experience</Link></li>
-              <li><Link to="/#contact">Contact</Link></li>
+              <li>
+                <Link to="/">About</Link>
+              </li>
+              <li>
+                <Link to="/cv" className="active">
+                  Experience
+                </Link>
+              </li>
+              <li>
+                <Link to="/#contact">Contact</Link>
+              </li>
             </ul>
           </nav>
         </div>
       </header>
 
-      <main>
+      <main role="main" id="main-content">
         <section className="hero">
           <div className="container">
             <div className="hero-layout">
@@ -49,7 +62,9 @@ const CVPage = ({ data }) => {
               <div key={index} className="experience-item">
                 <div className="experience-header">
                   <h3 className="experience-title">{job.title}</h3>
-                  <p className="experience-dates">{job.company} • {job.period}</p>
+                  <p className="experience-dates">
+                    {job.company} • {job.period}
+                  </p>
                 </div>
                 <div className="experience-content">
                   <ul>
@@ -82,7 +97,8 @@ const CVPage = ({ data }) => {
             <div className="simple-content">
               {cvContent.education.map((edu, index) => (
                 <div key={index} className="education-item">
-                  <strong>{edu.institution}</strong><br />
+                  <strong>{edu.institution}</strong>
+                  <br />
                   {edu.degree} ({edu.year})
                 </div>
               ))}
@@ -98,19 +114,52 @@ const CVPage = ({ data }) => {
           <div className="container">
             <h2 className="contact-title">Have a project in mind?</h2>
             <ul className="contact-links">
-              <li><a href={`mailto:${contactInfo.email}`}>Email</a></li>
-              <li><a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.linkedin.label}</a></li>
-              <li><a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">{contactInfo.social.bluesky.label}</a></li>
+              <li>
+                <a href={`mailto:${contactInfo.email}`} aria-label="Email Victor Hernandez">
+                  Email
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contactInfo.social.linkedin.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Victor Hernandez on LinkedIn"
+                >
+                  {contactInfo.social.linkedin.label}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={contactInfo.social.bluesky.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Victor Hernandez on BlueSky"
+                >
+                  {contactInfo.social.bluesky.label}
+                </a>
+              </li>
             </ul>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
+      <footer className="footer" role="contentinfo">
         <div className="container">
-          <p>📍 {contactInfo.location} | ✉️ <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐 <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">LinkedIn</a> | 🦋 <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">BlueSky</a></p>
+          <p>
+            📍 {contactInfo.location} | ✉️{' '}
+            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐{' '}
+            <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>{' '}
+            | 🦋{' '}
+            <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">
+              BlueSky
+            </a>
+          </p>
         </div>
       </footer>
+      <CookieConsentBanner />
     </>
   )
 }
@@ -119,8 +168,12 @@ export default CVPage
 
 export const Head = ({ data }) => (
   <HeadContent
-    title={data.cvContent.frontmatter.seo?.title || "Victor Hernandez - CV & Portfolio"}
+    title={data.cvContent.frontmatter.seo?.title || 'Victor Hernandez - CV & Portfolio'}
     description={data.cvContent.frontmatter.seo?.description || data.site.siteMetadata.description}
+    pathname="/cv/"
+    siteUrl={data.site.siteMetadata.siteUrl}
+    siteName="Deploy/this"
+    image={data.cvContent.frontmatter.seo?.image || '/icons/icon-512x512.png'}
   />
 )
 
@@ -153,6 +206,7 @@ export const query = graphql`
         seo {
           title
           description
+          image
         }
       }
     }
@@ -179,6 +233,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        siteUrl
       }
     }
   }

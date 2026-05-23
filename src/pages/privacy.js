@@ -1,15 +1,16 @@
 import * as React from 'react'
-import ReactMarkdown from 'react-markdown'
 import { Link, graphql } from 'gatsby'
+import ReactMarkdown from 'react-markdown'
 import HeadContent from '../components/_head'
 import BeeLogo from '../components/BeeLogo'
 import CookieConsentBanner from '../components/CookieConsent'
 import '../styles/fonts.css'
 import '../styles/global.css'
 
-const IndexPage = ({ data }) => {
-  const homeContent = data.homeContent.frontmatter
+const PrivacyPage = ({ data }) => {
+  const privacyContent = data.privacyContent
   const contactInfo = data.contactInfo.frontmatter
+
   return (
     <>
       <a href="#main-content" className="skip-link">
@@ -24,9 +25,7 @@ const IndexPage = ({ data }) => {
           <nav role="navigation" aria-label="Main navigation">
             <ul className="nav-links">
               <li>
-                <Link to="/" className="active">
-                  About
-                </Link>
+                <Link to="/">About</Link>
               </li>
               <li>
                 <Link to="/cv">Experience</Link>
@@ -44,47 +43,27 @@ const IndexPage = ({ data }) => {
           <div className="container">
             <div className="hero-layout">
               <div className="hero-text">
-                <h1 className="hero-title">{homeContent.title}</h1>
-                <p className="hero-subtitle">{homeContent.subtitle}</p>
+                <h1 className="hero-title">{privacyContent.frontmatter.title}</h1>
+                <p className="hero-subtitle">{privacyContent.frontmatter.subtitle}</p>
               </div>
               <div className="hero-logo">
-                <BeeLogo size={240} className="floating-bee" />
+                <BeeLogo size={120} className="floating-bee" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section" id="about">
+        <section className="section">
           <div className="container">
-            <h2 className="section-title">About</h2>
-            <div className="about-content">
-              <div className="about-text">
-                <p>
-                  <ReactMarkdown>{homeContent.bio}</ReactMarkdown>
-                </p>
-                <p>
-                  <ReactMarkdown>{homeContent.description}</ReactMarkdown>
-                </p>
-                <p>
-                  <ReactMarkdown>{homeContent.vision}</ReactMarkdown>
-                </p>
-              </div>
-              <div className="about-skills">
-                <h3>Skills & Focus Areas</h3>
-                <ul>
-                  {homeContent.skills.technical.map((skill, index) => (
-                    <li key={index}>{skill}</li>
-                  ))}
-                </ul>
-              </div>
+            <div className="content-card">
+              <ReactMarkdown>{privacyContent.rawMarkdownBody}</ReactMarkdown>
             </div>
           </div>
         </section>
 
         <section className="contact-section" id="contact">
           <div className="container">
-            <h2 className="contact-title">Get in touch</h2>
-            <p>Have a project in mind?</p>
+            <h2 className="contact-title">Questions about privacy?</h2>
             <ul className="contact-links">
               <li>
                 <a href={`mailto:${contactInfo.email}`} aria-label="Email Victor Hernandez">
@@ -136,42 +115,36 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default IndexPage
+export default PrivacyPage
 
 export const Head = ({ data }) =>
   HeadContent({
-    title: data.homeContent.frontmatter.seo?.title || data.site.siteMetadata.title,
+    title: data.privacyContent.frontmatter.seo?.title || 'Privacy Policy | Deploy/this',
     description:
-      data.homeContent.frontmatter.seo?.description || data.site.siteMetadata.description,
-    pathname: '/',
+      data.privacyContent.frontmatter.seo?.description ||
+      'Privacy policy for deploythis.co - Learn how we collect, use, and protect your data.',
+    pathname: '/privacy/',
     siteUrl: data.site.siteMetadata.siteUrl,
     siteName: 'Deploy/this',
-    image: data.homeContent.frontmatter.seo?.image || '/icons/icon-512x512.png',
+    image: data.privacyContent.frontmatter.seo?.image || '/icons/icon-512x512.png',
   })
 
 export const query = graphql`
-  query HomePageQuery {
-    homeContent: markdownRemark(
+  query PrivacyPageQuery {
+    privacyContent: markdownRemark(
       frontmatter: { type: { eq: "page" } }
-      fileAbsolutePath: { regex: "/content/pages/home/" }
+      fileAbsolutePath: { regex: "/content/pages/privacy/" }
     ) {
       frontmatter {
         title
         subtitle
-        name
-        role
-        bio
-        description
-        vision
-        skills {
-          technical
-        }
         seo {
           title
           description
           image
         }
       }
+      rawMarkdownBody
     }
     contactInfo: markdownRemark(
       frontmatter: { type: { eq: "contact" } }
@@ -194,8 +167,6 @@ export const query = graphql`
     }
     site {
       siteMetadata {
-        title
-        description
         siteUrl
       }
     }

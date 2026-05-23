@@ -11,43 +11,55 @@ module.exports = {
     location: `Brookline, MA`,
     social: {
       linkedin: `https://www.linkedin.com/in/victorhernandezduran`,
-      bluesky: `https://bsky.app/profile/deploythis.bsky.social`
-    }
+      bluesky: `https://bsky.app/profile/deploythis.bsky.social`,
+    },
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", "gatsby-transformer-remark", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      name: 'Deploy/this - Victor Hernandez',
-      short_name: 'Deploy/this',
-      start_url: '/',
-      background_color: '#FFFFFF',
-      theme_color: '#FFE014',
-      display: 'minimal-ui',
-      icon: 'src/images/icon.png',
-      icon_options: {
-        purpose: 'any maskable',
+  plugins: [
+    'gatsby-plugin-sass',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sitemap',
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Deploy/this - Victor Hernandez',
+        short_name: 'Deploy/this',
+        start_url: '/',
+        background_color: '#FFFFFF',
+        theme_color: '#FFE014',
+        display: 'minimal-ui',
+        icon: 'src/images/icon-square.png',
+        icon_options: {
+          purpose: 'any maskable',
+        },
       },
-    }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
     },
-    __key: "images"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'images',
     },
-    __key: "pages"
-  }, {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "content",
-      "path": "./content/"
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: './src/pages/',
+      },
+      __key: 'pages',
     },
-    __key: "content"
-  }]
-};
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: './content/',
+      },
+      __key: 'content',
+    },
+  ],
+}

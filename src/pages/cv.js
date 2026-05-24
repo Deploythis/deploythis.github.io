@@ -48,7 +48,7 @@ const CVPage = ({ data }) => {
                 <p className="hero-subtitle">{cvContent.subtitle}</p>
               </div>
               <div className="hero-logo">
-                <BeeLogo size={120} className="floating-bee" />
+                <BeeLogo size={150} className="floating-bee" />
               </div>
             </div>
           </div>

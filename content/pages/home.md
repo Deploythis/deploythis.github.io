@@ -1,24 +1,24 @@
 ---
-type: "page"
-title: "Frontend Developer / Creative Technologist"
-subtitle: "I am the bridge between creative vision and technical reality. My role is to translate \"what if\" ideas into a clear \"how-to\" roadmap, helping teams execute with confidence."
-name: "Victor Hernandez"
-role: "Creative Technologist and Frontend Developer"
-experienceYears: "30 years of experience"
-bio: "Hi, I'm **Victor Hernandez**, a Creative Technologist and Frontend Developer who bridges technical execution with strategic vision."
-description: "I specialize in **translating between creative vision and technical reality** – helping teams move from \"what if\" to \"how to\" with clarity and confidence. With over 30 years of experience across software engineering, digital transformation, and creative technology, I bring a unique perspective to building **scalable, user-friendly, and high-performance applications**."
-vision: "My vision combines **30 years of technology evolution experience** with current AI-era opportunities to reskill further in React and JavaScript frameworks, upskill in Web Security, deepen expertise in Performance and Usability, and integrate AI to deliver smarter, more engaging user experiences."
+type: 'page'
+title: 'Software Engineer & Creative Technologist'
+subtitle: 'Creative technology-focused software engineer building frontend systems, content infrastructure, and platform tooling with AI-augmented workflows.'
+name: 'Victor Hernandez'
+role: 'Software Engineer & Creative Technologist'
+experienceYears: '25+ years of experience'
+bio: "Hi, I'm **Victor Hernandez**, a software engineer specializing in frontend systems, content infrastructure, and platform tooling: currently modernizing Adobe's documentation platform."
+description: "I build **frontend systems, content infrastructure, and platform tooling**: currently modernizing Adobe's Experience League with full-stack TypeScript, Node.js, serverless architecture, and AI-augmented development workflows."
+vision: 'Combining **25+ years of technology evolution** with AI-era tooling to deliver smarter, more scalable user experiences, from content platforms to creative technology.'
 skills:
   technical:
-    - "Frontend Development"
-    - "React & JavaScript frameworks"
-    - "Performance optimization"
-    - "Web Security & Accessibility"
-    - "AI & Emerging Technologies"
-    - "Digital Strategy"
+    - 'TypeScript & Node.js'
+    - 'React & JavaScript frameworks'
+    - 'Serverless architecture & CI/CD'
+    - 'AI-augmented development'
+    - 'Cross-domain API integrations'
+    - 'Web Security & Accessibility'
 seo:
-  title: "Victor Hernandez - Frontend Developer & Creative Technologist"
-  description: "Creative Technologist bridging technical execution with strategic vision. 30+ years experience in React, JavaScript, and performance optimization."
+  title: 'Victor Hernandez - Software Engineer & Creative Technologist'
+  description: 'Software engineer building frontend systems, content infrastructure, and platform tooling with AI-augmented workflows. 25+ years experience across Adobe, creative technology, and consulting.'
 ---
 
 # About Victor Hernandez

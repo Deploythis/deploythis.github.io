@@ -1,65 +1,57 @@
 ---
-type: "page"
-title: "CV / Portfolio"
-subtitle: "Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – from early web development to AI-era solutions. Expert in bridging technical execution with strategic vision, creating scalable user experiences, and leading digital transformation for enterprise clients."
-updated: "2024-09-16"
+type: 'page'
+title: 'Experience'
+subtitle: "Creative technology-focused software engineer with 25+ years of experience building frontend systems, content infrastructure, and platform tooling. Currently modernizing Adobe's documentation platform with full-stack TypeScript, Node.js, serverless architecture, and AI-augmented development workflows."
+updated: '2024-09-16'
 experience:
-  - title: "Senior Frontend Developer"
-    company: "Endava"
-    period: "Nov 2021 – Present"
+  - title: 'Senior Frontend Developer'
+    company: 'Endava (Adobe Experience League)'
+    period: 'Nov 2021 – Present'
     description:
-      - "Enhance and maintain documentation projects using Adobe AEM / AIO, JavaScript, Sass, and Node.js"
-      - "Implemented new editor functionality and improved accuracy of content systems"
-      - "Built proprietary web components and ensured robust CSS framework consistency"
-  - title: "Creative Technologist / Full Stack Developer"
-    company: "Nullun"
-    period: "2008 – 2021"
+      - "Led migration of Adobe's Experience League from legacy Vanilla JS to AEM, improving multilingual content accuracy and editorial workflows at scale"
+      - 'Expanded to full-stack scope in 2025: Node.js and TypeScript tooling, serverless architecture, GitHub Actions CI/CD pipelines, and cross-domain API integrations'
+      - 'Uses AI coding tools as part of daily development, maintaining a custom IDE workflow that structures complex implementation into reviewable steps'
+  - title: 'Digital Director / Creative Technologist'
+    company: 'Ogilvy & Mather'
+    period: '2016 – 2017'
     description:
-      - "Consulted for agencies and software companies on digital products, technical leadership, and team building"
-  - title: "Digital Director / Creative Technologist"
-    company: "Ogilvy & Mather"
-    period: "2016 – 2017"
+      - 'Led digital strategic planning for Coca-Cola, Pfizer, Claro, Allianz, Dunkin Donuts, and others'
+      - 'Guided teams in building campaigns and adopting digital-first processes'
+  - title: 'Creative Technologist Director'
+    company: 'Sancho BBDO'
+    period: '2010 – 2016'
     description:
-      - "Led digital strategic planning for Coca-Cola, Pfizer, Claro, Allianz, Dunkin Donuts, and others"
-      - "Guided teams in building campaigns and adopting digital-first processes"
-  - title: "Creative Technologist Director"
-    company: "Sancho BBDO"
-    period: "2010 – 2016"
+      - 'Drove digital transformation, innovation teams, and prototyping initiatives'
+      - 'Oversaw production teams, delivering scalable and creative digital campaigns'
+  - title: 'Independent Consultant & Freelance Developer'
+    company: 'Self-employed'
+    period: '1997 – 2021'
     description:
-      - "Drove digital transformation, innovation teams, and prototyping initiatives"
-      - "Oversaw production teams, delivering scalable and creative digital campaigns"
-  - title: "Full Stack Developer"
-    company: "Various Companies"
-    period: "1997 – 2010"
-    description:
-      - "**La Cápsula** – Full Stack Developer (2007 – 2010)"
-      - "**WWF Colombia** – Full Stack Developer (2001 – 2007)"
-      - "**Banco Aliadas** – Full Stack Developer (2001 – 2006)"
-      - "**Brincabrinca Ltd (Co-Founder)** – Full Stack Developer (1997 – 2005)"
+      - 'Provided consulting, development, and technical leadership to agencies, NGOs, enterprises, and public institutions'
+      - '**Brincabrinca Ltd** (Co-Founder, 1997-2005): founded and ran a digital products studio'
+      - '**Nullun** (2008-2021): operated as an independent creative technology practice'
+      - 'Notable clients: WWF Colombia, Banco Aliadas, La Cápsula, Colombian public institutions, and political campaigns'
 skills:
   technical:
-    - "React development"
-    - "JavaScript frameworks"
-    - "TypeScript"
-    - "Node.js"
-    - "Performance optimization"
-    - "Web Security"
-    - "Accessibility"
-    - "Agentic AI systems"
-    - "Strategic thinking"
-    - "Technical-creative translation"
+    - 'TypeScript & Node.js'
+    - 'React & JavaScript frameworks'
+    - 'Serverless architecture & CI/CD'
+    - 'AI-augmented development workflows'
+    - 'Cross-domain API integrations'
+    - 'Content infrastructure & documentation platforms'
+    - 'Web Security & Accessibility'
+    - 'Performance optimization'
+    - 'Strategic thinking'
+    - 'Technical-creative translation'
 education:
-  - degree: "Full Stack Software Engineering"
-    institution: "Holberton School"
-    year: "2019–2021"
-  - degree: "Academic Studies"
-    institution: "Institución Universitaria Antonio José Camacho"
-    year: "1996–1999"
+  - degree: 'Full Stack Software Engineering'
+    institution: 'Holberton School'
+    year: '2019–2021'
 awards:
-  recognition: "Bronze Awards in Media, Cyber, and Social & Influencer categories for campaigns including Run for Your Balls, VoiceBank, and Lions Earth is Saying."
+  recognition: 'Three Bronze Lions at Cannes for campaigns including Run for Your Balls (Media), VoiceBank (Cyber), and Lions Earth is Saying (Social & Influencer).'
 seo:
-  title: "Victor Hernandez - CV & Portfolio"
-  description: "Senior Frontend Developer and Creative Technologist with 30 years of technology evolution experience – bridging technical execution with strategic vision"
+  title: 'Victor Hernandez - Software Engineer & Creative Technologist'
+  description: 'Software engineer building frontend systems, content infrastructure, and platform tooling with AI-augmented workflows. 25+ years experience across Adobe, creative technology, and consulting.'
 ---
 
 # Professional Experience

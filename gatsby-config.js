@@ -26,7 +26,7 @@ module.exports = {
         short_name: 'Deploy/this',
         start_url: '/',
         background_color: '#FFFFFF',
-        theme_color: '#FFE014',
+        theme_color: '#FFFFFF',
         display: 'minimal-ui',
         icon: 'src/images/icon-square.png',
         icon_options: {

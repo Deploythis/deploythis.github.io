@@ -1,138 +1,95 @@
 import * as React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import { ArrowRight } from 'lucide-react'
 import HeadContent from '../components/_head'
-import BeeLogo from '../components/BeeLogo'
-import CookieConsentBanner from '../components/CookieConsent'
-import '../styles/fonts.css'
-import '../styles/global.css'
+import Layout from '../components/Layout'
+import Eyebrow from '../components/Eyebrow'
+import Button from '../components/Button'
+import Card from '../components/Card'
+import Terminal from '../components/Terminal'
+
+// Render **bold** spans. "Victor Hernandez" gets the brand mark highlight;
+// every other bold phrase renders as a plain strong (text_strong, weight 700),
+// matching the spec's inline_emphasis rules.
+const toText = children =>
+  React.Children.toArray(children)
+    .map(child => (typeof child === 'string' ? child : toText(child.props?.children)))
+    .join('')
+
+const Strong = ({ children }) => {
+  if (toText(children).trim() === 'Victor Hernandez') {
+    return <mark className="dt-mark">{children}</mark>
+  }
+  return <strong>{children}</strong>
+}
+
+const markdownComponents = { strong: Strong }
 
 const IndexPage = ({ data }) => {
   const homeContent = data.homeContent.frontmatter
   const contactInfo = data.contactInfo.frontmatter
+
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <header className="header" role="banner">
-        <div className="container">
-          <div className="logo">
-            <span className="brand-highlight">{'{'}</span>Deploy/this
-            <span className="brand-highlight">{'}'}</span>
-          </div>
-          <nav role="navigation" aria-label="Main navigation">
-            <ul className="nav-links">
-              <li>
-                <Link to="/" className="active">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/cv">Experience</Link>
-              </li>
-              <li>
-                <Link to="/#contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      <main role="main" id="main-content">
-        <section className="hero">
-          <div className="container">
-            <div className="hero-layout">
-              <div className="hero-text">
-                <h1 className="hero-title">{homeContent.title}</h1>
-                <p className="hero-subtitle">{homeContent.subtitle}</p>
-              </div>
-              <div className="hero-logo">
-                <BeeLogo size={240} className="floating-bee" />
+    <Layout contact={contactInfo}>
+      {/* Hero */}
+      <section className="dt-hero">
+        <div className="dt-container">
+          <div className="dt-hero__grid">
+            <div className="dt-hero__text">
+              <Eyebrow tick="//">software engineer · creative technologist</Eyebrow>
+              <h1 className="dt-hero__title">{homeContent.title}</h1>
+              <p className="dt-hero__body">{homeContent.subtitle}</p>
+              <div className="dt-hero__ctas">
+                <Button to="/#contact" variant="primary" size="md" iconRight={<ArrowRight />}>
+                  Get in touch
+                </Button>
+                <Button to="/experience" variant="secondary" size="md">
+                  View experience
+                </Button>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="section" id="about">
-          <div className="container">
-            <h2 className="section-title">About</h2>
-            <div className="about-content">
-              <div className="about-text">
-                <p>
-                  <ReactMarkdown>{homeContent.bio}</ReactMarkdown>
-                </p>
-                <p>
-                  <ReactMarkdown>{homeContent.description}</ReactMarkdown>
-                </p>
-                <p>
-                  <ReactMarkdown>{homeContent.vision}</ReactMarkdown>
-                </p>
-              </div>
-              <div className="about-skills">
-                <h3>Skills & Focus Areas</h3>
-                <ul>
-                  {homeContent.skills.technical.map((skill, index) => (
-                    <li key={index}>{skill}</li>
-                  ))}
-                </ul>
-              </div>
+            <div className="dt-hero__visual">
+              <Terminal />
             </div>
           </div>
-        </section>
-
-        <section className="contact-section" id="contact">
-          <div className="container">
-            <h2 className="contact-title">Get in touch</h2>
-            <p>Have a project in mind?</p>
-            <ul className="contact-links">
-              <li>
-                <a href={`mailto:${contactInfo.email}`} aria-label="Email Victor Hernandez">
-                  Email
-                </a>
-              </li>
-              <li>
-                <a
-                  href={contactInfo.social.linkedin.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Victor Hernandez on LinkedIn"
-                >
-                  {contactInfo.social.linkedin.label}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={contactInfo.social.bluesky.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Victor Hernandez on BlueSky"
-                >
-                  {contactInfo.social.bluesky.label}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer" role="contentinfo">
-        <div className="container">
-          <p>
-            📍 {contactInfo.location} | ✉️{' '}
-            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐{' '}
-            <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>{' '}
-            | 🦋{' '}
-            <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">
-              BlueSky
-            </a>
-          </p>
         </div>
-      </footer>
-      <CookieConsentBanner />
-    </>
+      </section>
+
+      {/* About (sunken) */}
+      <section className="dt-section dt-section--sunken" id="about">
+        <div className="dt-container">
+          <div className="dt-section__head">
+            <Eyebrow tick="//">about</Eyebrow>
+            <h2 className="dt-section__title">Building for the people doing the work.</h2>
+          </div>
+
+          <div className="dt-about__grid">
+            <div className="dt-about__text">
+              <ReactMarkdown components={markdownComponents}>{homeContent.bio}</ReactMarkdown>
+              <ReactMarkdown components={markdownComponents}>
+                {homeContent.description}
+              </ReactMarkdown>
+              <ReactMarkdown components={markdownComponents}>{homeContent.vision}</ReactMarkdown>
+            </div>
+
+            <Card>
+              <Eyebrow tick="#">skills &amp; focus areas</Eyebrow>
+              <ul className="dt-about__skill-list">
+                {homeContent.skills.technical.map(skill => (
+                  <li key={skill} className="dt-about__skill">
+                    <span className="dt-about__skill-prefix" aria-hidden="true">
+                      {'>'}
+                    </span>
+                    <span className="dt-about__skill-label">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </Layout>
   )
 }
 
@@ -140,7 +97,9 @@ export default IndexPage
 
 export const Head = ({ data }) =>
   HeadContent({
-    title: data.homeContent.frontmatter.seo?.title || data.site.siteMetadata.title,
+    title:
+      data.homeContent.frontmatter.seo?.title ||
+      'Victor Hernandez — Software Engineer & Creative Technologist',
     description:
       data.homeContent.frontmatter.seo?.description || data.site.siteMetadata.description,
     pathname: '/',

@@ -18,6 +18,18 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'Fredoka:400,500,600,700',
+          'Raleway:500,600,700,800',
+          'Nunito Sans:400,600,700,800',
+          'JetBrains Mono:400,500,700',
+        ],
+        display: 'swap',
+      },
+    },
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-manifest',

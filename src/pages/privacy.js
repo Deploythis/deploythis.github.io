@@ -1,117 +1,35 @@
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 import HeadContent from '../components/_head'
-import BeeLogo from '../components/BeeLogo'
-import CookieConsentBanner from '../components/CookieConsent'
-import '../styles/fonts.css'
-import '../styles/global.css'
+import Layout from '../components/Layout'
+import Eyebrow from '../components/Eyebrow'
+import Card from '../components/Card'
 
 const PrivacyPage = ({ data }) => {
   const privacyContent = data.privacyContent
   const contactInfo = data.contactInfo.frontmatter
 
   return (
-    <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <header className="header" role="banner">
-        <div className="container">
-          <div className="logo">
-            <span className="brand-highlight">{'{'}</span>Deploy/this
-            <span className="brand-highlight">{'}'}</span>
-          </div>
-          <nav role="navigation" aria-label="Main navigation">
-            <ul className="nav-links">
-              <li>
-                <Link to="/">About</Link>
-              </li>
-              <li>
-                <Link to="/cv">Experience</Link>
-              </li>
-              <li>
-                <Link to="/#contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
+    <Layout contact={contactInfo}>
+      <section className="dt-hero">
+        <div className="dt-container" style={{ maxWidth: 880 }}>
+          <Eyebrow tick="//">privacy</Eyebrow>
+          <h1 className="dt-hero__title">{privacyContent.frontmatter.title}</h1>
+          <p className="dt-hero__body">{privacyContent.frontmatter.subtitle}</p>
         </div>
-      </header>
+      </section>
 
-      <main role="main" id="main-content">
-        <section className="hero">
-          <div className="container">
-            <div className="hero-layout">
-              <div className="hero-text">
-                <h1 className="hero-title">{privacyContent.frontmatter.title}</h1>
-                <p className="hero-subtitle">{privacyContent.frontmatter.subtitle}</p>
-              </div>
-              <div className="hero-logo">
-                <BeeLogo size={120} className="floating-bee" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section">
-          <div className="container">
-            <div className="content-card">
+      <section className="dt-section dt-section--sunken">
+        <div className="dt-container" style={{ maxWidth: 880 }}>
+          <Card>
+            <div className="dt-content">
               <ReactMarkdown>{privacyContent.rawMarkdownBody}</ReactMarkdown>
             </div>
-          </div>
-        </section>
-
-        <section className="contact-section" id="contact">
-          <div className="container">
-            <h2 className="contact-title">Questions about privacy?</h2>
-            <ul className="contact-links">
-              <li>
-                <a href={`mailto:${contactInfo.email}`} aria-label="Email Victor Hernandez">
-                  Email
-                </a>
-              </li>
-              <li>
-                <a
-                  href={contactInfo.social.linkedin.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Victor Hernandez on LinkedIn"
-                >
-                  {contactInfo.social.linkedin.label}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={contactInfo.social.bluesky.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Victor Hernandez on BlueSky"
-                >
-                  {contactInfo.social.bluesky.label}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer" role="contentinfo">
-        <div className="container">
-          <p>
-            📍 {contactInfo.location} | ✉️{' '}
-            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a> | 🌐{' '}
-            <a href={contactInfo.social.linkedin.url} target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>{' '}
-            | 🦋{' '}
-            <a href={contactInfo.social.bluesky.url} target="_blank" rel="noopener noreferrer">
-              BlueSky
-            </a>
-          </p>
+          </Card>
         </div>
-      </footer>
-      <CookieConsentBanner />
-    </>
+      </section>
+    </Layout>
   )
 }
 
